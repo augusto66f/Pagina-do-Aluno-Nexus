@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Digital | Plataforma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="plataforma.css">
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     LOGIN SCREEN
+══════════════════════════════════════════ -->
+<div id="loginScreen" class="screen active">
+    <div class="login-ambient"></div>
+
+    <div class="login-box">
+        <div class="login-logo">Nexus Digital</div>
+        <div class="login-ornament">
+            <div class="orn-line"></div>
+            <div class="orn-diamond"></div>
+            <div class="orn-line r"></div>
+        </div>
+        <div class="login-title">Área de Membros</div>
+        <div class="login-subtitle">Acesso exclusivo</div>
+
+        <div class="form-group">
+            <label class="form-label" for="passwordInput">Senha de Acesso</label>
+            <input
+                type="password"
+                id="passwordInput"
+                class="form-input"
+                placeholder="Digite sua senha"
+                autocomplete="current-password"
+            >
+        </div>
+
+        <div class="login-error" id="loginError"></div>
+
+        <button class="btn-login" onclick="doLogin()">
+            <span>Acessar Plataforma</span>
+        </button>
+
+        <div class="login-hint">Acesso fornecido após a compra</div>
+    </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PLATFORM SCREEN
+══════════════════════════════════════════ -->
+<div id="platformScreen" class="screen">
+
+    <!-- TOP BAR -->
+    <div class="topbar">
+        <div class="topbar-left">
+            <button class="hamburger" id="hamburgerBtn" onclick="toggleSidebar()">
+                <span></span><span></span><span></span>
+            </button>
+            <div class="topbar-logo">
+                <div class="topbar-logo-dot"></div>
+                Nexus Digital
+            </div>
+        </div>
+        <div class="topbar-right">
+            <span class="topbar-progress-label" id="progressLabel">0 / 0</span>
+            <div class="topbar-progress-bar">
+                <div class="topbar-progress-fill" id="progressFill"></div>
+            </div>
+            <button class="btn-logout" onclick="doLogout()">Sair</button>
+        </div>
+    </div>
+
+    <div class="platform-body">
+
+        <!-- SIDEBAR OVERLAY (mobile) -->
+        <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-title">Sua Trilha</div>
+                <div class="sidebar-sub">Passo a passo</div>
+            </div>
+            <div class="trail-list" id="trailList"></div>
+        </aside>
+
+        <!-- MAIN CONTENT (rendered by JS) -->
+        <main class="main-content" id="mainContent"></main>
+
+    </div>
+</div>
+
+<script src="plataforma.js"></script>
+</body>
+</html>
